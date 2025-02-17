@@ -55,6 +55,7 @@ header {
 }
 
 .video-card-content {
+  border: 2px solid var(--color-one);
   border-radius: 10px;
   height: 80%;
   width: 80%;
