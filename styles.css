@@ -56,10 +56,6 @@ header {
 
 .video-card-content {
   border-radius: 10px;
-  background-image: url(./Images/Screenshot\ 2025-088-15\ 003312.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   height: 80%;
   width: 80%;
   padding: 1rem;
@@ -67,8 +63,8 @@ header {
 }
 
 .video-card-content:hover {
-  transform: scale(1.05); /* Slightly enlarge the element */
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Increase shadow for depth */
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 .custom-fill {
@@ -146,4 +142,40 @@ h2 {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+#video-card-github {
+  background-image: url(./Images/css.png);
+  background-position: center;
+  background-size: cover;
+}
+
+#video-card-instagram {
+  background-image: url();
+  background-position: center;
+  background-size: cover;
+}
+
+#video-card-tiktok {
+  background-image: url();
+  background-position: center;
+  background-size: cover;
+}
+
+#video-card-twitch {
+  background-image: url(./Images/Screenshot\ 2025-088-15\ 003312.png);
+  background-position: center;
+  background-size: cover;
+}
+
+#video-card-twitter {
+  background-image: url();
+  background-position: center;
+  background-size: cover;
+}
+
+#video-card-youtube {
+  background-image: url();
+  background-position: center;
+  background-size: cover;
 }
