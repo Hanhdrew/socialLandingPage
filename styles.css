@@ -43,6 +43,7 @@ header {
   justify-content: space-evenly;
   overflow-y: auto;
   gap: 1rem;
+  max-width: 2000px;
 }
 
 .video-card {
@@ -106,6 +107,9 @@ header {
     width: 33.3px;
     height: auto;
   }
+  body {
+    background-image: url(./Images2/london-3833039_640.jpg);
+  }
 }
 
 @media (max-width: 768px) {
@@ -123,6 +127,9 @@ header {
   img {
     width: 50px;
     height: auto;
+  }
+  body {
+    background-image: url(./Images2/london-3833039_640.jpg);
   }
 }
 
@@ -142,6 +149,9 @@ header {
     width: 66.67px;
     height: auto;
   }
+  body {
+    background-image: url(./Images2/london-3833039_1280.jpg);
+  }
 }
 
 @media (min-width: 1201px) {
@@ -159,6 +169,9 @@ header {
   img {
     width: 100px;
     height: auto;
+  }
+  body {
+    background-image: url(./Images2/london-3833039_1280.jpg);
   }
 }
 
