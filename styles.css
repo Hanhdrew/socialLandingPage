@@ -76,6 +76,14 @@ header {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
 }
 
+.video-card-content.active {
+  transform: scale(1.05);
+  border: 2px solid var(--color-secondary);
+  background-color: var(--background-color-secondary);
+  color: var(--color-secondary);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+}
+
 .custom-fill {
   fill: #ffff;
   height: 100px;
