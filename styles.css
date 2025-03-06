@@ -5,12 +5,10 @@
   --color-four: #584f4c;
   --color-five: #443a38;
   --color-six: #2d2f31;
-  --background-color-primary: rgba(25, 27, 29, .9);
+  --background-color-primary: rgba(25, 27, 29, 0.9);
   --background-color-secondary: rgba(25, 27, 29, 1);
   --color-eight: hsl(0, 0%, 30%);
 }
-
-
 
 html {
   font-family: "Poppins", sans-serif;
@@ -35,6 +33,7 @@ body {
   margin: 0;
   padding: 0;
   color: var(--color-primary);
+  overflow-x: hidden;
 }
 
 header {
@@ -56,6 +55,7 @@ header {
   width: 533.33px;
   background-color: var(--background-color-primary);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .video-card-content {
@@ -64,7 +64,8 @@ header {
   height: 80%;
   width: 80%;
   padding: 1rem;
-  transition: transform 0.2s;
+  transition: transform 0.2s, border-color 0.2s, background-color 0.2s,
+    color 0.2s, box-shadow 0.2s;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
 }
 
@@ -74,7 +75,7 @@ header {
   border: 2px solid var(--color-secondary);
   background-color: var(--background-color-secondary);
   color: var(--color-secondary);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .video-card-content.active {
@@ -82,7 +83,7 @@ header {
   border: 2px solid var(--color-secondary);
   background-color: var(--background-color-secondary);
   color: var(--color-secondary);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .custom-fill {
@@ -135,7 +136,7 @@ header {
 
 @media (max-width: 1200px) {
   html {
-    font-size: 95%; 
+    font-size: 95%;
   }
   .video-card {
     height: 200px;
@@ -214,4 +215,46 @@ a {
   background-image: url();
   background-position: center;
   background-size: cover;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./Images2/london-3833039.jpg);
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  transform: translateZ(-1px) scale(2);
+}
+
+.video-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.video-card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
