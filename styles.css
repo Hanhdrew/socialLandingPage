@@ -34,7 +34,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   color: var(--color-primary);
-  overflow-x: hidden;
+  text-shadow: 0 0 5px #000;
 }
 
 header {
@@ -52,6 +52,13 @@ main {
   max-width: 2000px;
 }
 
+.span-container {
+  font-size: 2rem;
+  background-color: var(--background-color-primary);
+  padding: 12px;
+  border-radius: 10px;
+}
+
 .video-card {
   display: flex;
   justify-content: center;
@@ -66,10 +73,13 @@ main {
 }
 
 .video-card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 2px solid var(--color-primary);
   border-radius: 10px;
-  height: 80%;
-  width: 80%;
+  height: 85%;
+  width: 85%;
   padding: 1rem;
   transition: transform 0.2s, border-color 0.2s, background-color 0.2s,
     color 0.2s, box-shadow 0.2s;
@@ -91,12 +101,6 @@ main {
   background-color: var(--background-color-secondary);
   color: var(--color-secondary);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
-}
-
-.custom-fill {
-  fill: #ffff;
-  height: 100px;
-  width: 100px;
 }
 
 @media (max-width: 480px) {
@@ -183,31 +187,25 @@ main {
   }
 }
 
-h2 {
-  border-radius: 10px;
-  text-align: center;
-  background-color: var(--background-color-primary);
-}
-
 a {
   text-decoration: none;
   color: inherit;
 }
 
 #video-card-github {
-  background-image: url(./Images2/css.png);
+  background-image: url(./Images2/git.png);
   background-position: center;
   background-size: cover;
 }
 
 #video-card-instagram {
-  background-image: url(./Images2/murine.png);
+  background-image: url(./Images2/merine.png);
   background-position: center;
   background-size: cover;
 }
 
 #video-card-tiktok {
-  background-image: url();
+  background-image: url(./Images2/tik.png);
   background-position: center;
   background-size: cover;
 }
@@ -218,8 +216,8 @@ a {
   background-size: cover;
 }
 
-#video-card-twitter {
-  background-image: url();
+#video-card-codepen {
+  background-image: url(./Images2/codepen.png);
   background-position: center;
   background-size: cover;
 }
