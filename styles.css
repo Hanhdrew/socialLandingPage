@@ -38,10 +38,14 @@ body {
 }
 
 header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   font-size: 2rem;
+  padding: 1rem;
   margin-bottom: 1rem;
   text-align: center;
-  background-color: var(--background-color-primary);
+  background-color: var(--background-color-secondary);
 }
 
 main {
@@ -106,6 +110,9 @@ main {
 @media (max-width: 480px) {
   html {
     font-size: 80%;
+  }
+  header {
+    font-size: 1.5rem;
   }
   .video-card {
     height: 100px;
@@ -218,6 +225,12 @@ a {
 
 #video-card-codepen {
   background-image: url(./Images2/codepen.png);
+  background-position: center;
+  background-size: cover;
+}
+
+#video-card-twitter {
+  background-image: url(./Images2/shelfie.png);
   background-position: center;
   background-size: cover;
 }
