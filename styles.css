@@ -1,66 +1,56 @@
 :root {
-  --color-primary: hsl(20, 55%, 61%);
-  --color-secondary: hsl(20, 55%, 71%);
-  --color-three: #7c6158;
-  --color-four: #584f4c;
-  --color-five: #443a38;
-  --color-six: #2d2f31;
-  --background-color-primary: rgba(25, 27, 29, 0.9);
-  --background-color-secondary: rgba(25, 27, 29, 1);
-  --color-eight: hsl(0, 0%, 30%);
+  /* primary color */
+  --clr-text: hsl(20, 55%, 71%);
+  --clr-highlight: hsl(20, 55%, 81%);
+
+  /* background colors */
+  --clr-background-transparent: rgba(25, 27, 29, 0.9);
+  --clr-background-opaque: rgba(25, 27, 29, 1);
+
+  /* shadows */
+  --box-shadow: 0 8px 12px rgba(0, 0, 0, 0.7);
+  --text-shadow: 0 0 3px rgb(0, 0, 0);
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-html {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 100%;
   box-sizing: border-box;
-  height: 100%;
 }
 
 body {
-  height: 100svh;
-  background-image: url(./Images2/london-3833039.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  min-height: 100svh;
+  color: var(--clr-text);
+  text-shadow: var(--text-shadow);
+  background-color: grey;
+  background-image: url();
   background-position: center;
-  color: var(--color-primary);
-  text-shadow: 0 0 5px #000;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 header {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  font-size: 2rem;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  background-color: var(--clr-background-transparent);
+  padding: 16px;
   text-align: center;
-  background-color: var(--background-color-secondary);
+}
+
+.main-text {
+  font-size: 3rem;
+  font-weight: 500;
 }
 
 main {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
   gap: 1rem;
-  max-width: 2000px;
-}
-
-.span-container {
-  font-size: 2rem;
-  background-color: var(--background-color-primary);
-  padding: 12px;
-  border-radius: 10px;
+  margin: 5%;
+  justify-content: space-evenly;
 }
 
 .video-card {
@@ -68,211 +58,111 @@ main {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  padding: 0.5rem;
   height: 300px;
   width: 533.33px;
-  background-color: var(--background-color-primary);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--clr-background-transparent);
+  box-shadow: var(--box-shadow);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .video-card-content {
+  border-right: 2px solid var(--clr-text);
+  border-bottom: 2px solid var(--clr-text);
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid var(--color-primary);
+  position: relative;
+  isolation: isolate;
   border-radius: 10px;
-  height: 85%;
-  width: 85%;
-  padding: 1rem;
-  transition: transform 0.2s, border-color 0.2s, background-color 0.2s,
-    color 0.2s, box-shadow 0.2s;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+  font-size: 2rem;
+  height: 80%;
+  width: 80%;
+  background-color: var(--clr-background-transparent);
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s;
+}
+
+.video-card-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+  background: linear-gradient(0deg, rgb(0 0 0 / 0.8), rgb(0 0 0 / 0));
 }
 
 .video-card-content:hover,
-.video-card-content:active {
+.video-card-content:active,
+.video-card-content.touch-active {
   transform: scale(1.05);
-  border: 2px solid var(--color-secondary);
-  background-color: var(--background-color-secondary);
-  color: var(--color-secondary);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
+  color: var(--clr-highlight);
+  border: 3px solid var(--clr-highlight);
 }
 
-.video-card-content.active {
-  transform: scale(1.05);
-  border: 2px solid var(--color-secondary);
-  background-color: var(--background-color-secondary);
-  color: var(--color-secondary);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-@media (max-width: 480px) {
-  html {
-    font-size: 80%;
-  }
-  header {
-    font-size: 1.5rem;
-  }
-  .video-card {
-    height: 100px;
-    width: 177.78px;
-  }
-  .custom-fill {
-    height: 33.33px;
-    width: 33.33px;
-  }
-  img {
-    width: 33.3px;
-    height: auto;
-  }
-  body {
-    background-image: url(./Images2/london-3833039_640.jpg);
-  }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   html {
     font-size: 90%;
   }
+
   .video-card {
-    height: 150px;
-    width: 266.67px;
-  }
-  .custom-fill {
-    height: 50px;
-    width: 50px;
-  }
-  img {
-    width: 50px;
-    height: auto;
-  }
-  body {
-    background-image: url(./Images2/london-3833039_640.jpg);
+    width: 383.33px;
+    height: 215px;
   }
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 768px) and (max-width: 991.98px) {
   html {
     font-size: 95%;
   }
   .video-card {
-    height: 200px;
-    width: 355.56px;
-  }
-  .custom-fill {
-    height: 66.67px;
-    width: 66.67px;
-  }
-  img {
-    width: 66.67px;
-    height: auto;
-  }
-  body {
-    background-image: url(./Images2/london-3833039_1280.jpg);
+    width: 433.33px;
+    height: 243.75px;
   }
 }
 
-@media (min-width: 1201px) {
+@media (min-width: 992px) and (max-width: 1199.98px) {
   html {
     font-size: 100%;
   }
   .video-card {
-    height: 300px;
-    width: 533.33px;
+    width: 483.33px;
+    height: 271.88px;
   }
-  .custom-fill {
-    height: 100px;
-    width: 100px;
-  }
-  img {
-    width: 100px;
-    height: auto;
-  }
-  body {
-    background-image: url(./Images2/london-3833039_1280.jpg);
-  }
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
 }
 
 #video-card-github {
-  background-image: url(./Images2/git.png);
+  background-image: url();
   background-position: center;
   background-size: cover;
 }
 
 #video-card-instagram {
-  background-image: url(./Images2/merine.png);
+  background-image: url();
   background-position: center;
   background-size: cover;
 }
 
 #video-card-tiktok {
-  background-image: url(./Images2/tik.png);
+  background-image: url();
   background-position: center;
   background-size: cover;
 }
 
 #video-card-twitch {
-  background-image: url(./Images2/Screenshot\ 2025-088-15\ 003312.png);
+  background-image: url();
   background-position: center;
   background-size: cover;
 }
 
 #video-card-codepen {
-  background-image: url(./Images2/codepen.png);
+  background-image: url();
   background-position: center;
   background-size: cover;
-}
-
-#video-card-twitter {
-  background-image: url(./Images2/shelfie.png);
-  background-position: center;
-  background-size: cover;
-}
-
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--background-color-primary);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
-  border-radius: 6px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-secondary);
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(./Images2/london-3833039.jpg);
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-  transform: translateZ(-1px) scale(2);
-}
-
-.video-card {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.video-card.visible {
-  opacity: 1;
-  transform: translateY(0);
 }

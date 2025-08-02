@@ -1,39 +1,47 @@
-document.addEventListener("touchstart", function (event) {
-  if (event.target.classList.contains("video-card-content")) {
-    event.target.classList.add("active");
-  }
-});
+const videoCards = document.querySelectorAll('.video-card');
 
-document.addEventListener("touchend", function (event) {
-  if (event.target.classList.contains("video-card-content")) {
-    event.target.classList.remove("active");
-  }
-});
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.5,
+};
 
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior: "smooth",
-    });
+const observerCallback = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    } else {
+      entry.target.style.opacity = '0';
+      entry.target.style.transform = 'translateY(20px)';
+    }
   });
+};
+
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+videoCards.forEach((card) => {
+  observer.observe(card);
 });
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      } else {
-        entry.target.classList.remove("visible");
-      }
-    });
-  },
-  {
-    threshold: 0.1,
-  }
-);
+const videoCardContents = document.querySelectorAll('.video-card-content');
 
-document.querySelectorAll(".video-card").forEach((card) => {
-  observer.observe(card);
+videoCardContents.forEach(card => {
+  let touchTimeout;
+
+  card.addEventListener('touchstart', () => {
+    touchTimeout = setTimeout(() => {
+      card.classList.add('touch-active');
+    }, 100);
+  });
+
+  card.addEventListener('touchend', () => {
+    clearTimeout(touchTimeout);
+    card.classList.remove('touch-active');
+  });
+
+  card.addEventListener('touchmove', () => {
+    clearTimeout(touchTimeout);
+    card.classList.remove('touch-active');
+  });
 });
